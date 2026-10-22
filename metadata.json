@@ -1,0 +1,5 @@
+{
+  "name": "Bookstore Order Manager",
+  "description": "نظام سطح مكتب لإدارة حجوزات الكتب والعملاء والطلبات، مبني بـ Electron وReact وTypeScript مع Supabase وSQLite.",
+  "requestFramePermissions": []
+}
