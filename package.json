@@ -13,7 +13,8 @@
     "electron:dev": "concurrently -k \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
     "rebuild": "electron-builder install-app-deps",
     "build:dir": "npm run build && npx electron-builder --win dir",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "typecheck": "tsc --noEmit"
   },
   "build": {
     "appId": "com.bookstore.ordermanager",
@@ -86,5 +87,30 @@
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
     "wait-on": "^8.0.5"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss",
+    "supabase",
+    "sqlite",
+    "bookstore",
+    "order-management",
+    "arabic",
+    "rtl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abdo4312/bookstore-order-manager.git"
+  },
+  "homepage": "https://github.com/abdo4312/bookstore-order-manager#readme",
+  "bugs": {
+    "url": "https://github.com/abdo4312/bookstore-order-manager/issues"
   }
 }

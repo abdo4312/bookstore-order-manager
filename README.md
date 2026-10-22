@@ -6,6 +6,10 @@
 
 > **ملاحظة:** هذا المستودع مخصص للعرض (Portfolio). لا يحتوي على أي بيانات عملاء حقيقية أو مفاتيح اتصال.
 
+## 🎯 المشكلة والحل
+
+إدارة حجوزات الكتب في مكتبة صغيرة غالبًا تتم عبر دفتر أو ملفات Excel متفرقة، وده يصعّب تتبع حالة كل طلب ومعرفة مستحقات العملاء. التطبيق يجمع الطلبات، العملاء، دور النشر، والمدفوعات في واجهة واحدة، مع تقارير قابلة للطباعة وتصدير Excel، ويعمل محليًا على Windows مع إمكانية مزامنة سحابية اختيارية.
+
 ## ✨ المميزات
 
 - إدارة الطلبات: إضافة، تعديل، حذف، وتتبع الحالة (قيد الانتظار / تم التسليم / ملغي).
@@ -17,6 +21,13 @@
 - وضعان للبيانات: سحابي (Supabase) أو محلي (SQLite).
 - واجهة عربية RTL متجاوبة.
 - سجل SQL لتشخيص العمليات.
+
+## 🧩 التحديات التقنية
+
+- **وضعان للبيانات:** نفس طبقة الخدمات تعمل مع Supabase أو SQLite حسب `USE_CLOUD`.
+- **عزل Electron:** الواجهة لا تصل إلى Node.js مباشرة؛ الوصول لقاعدة البيانات المحلية عبر `contextBridge` وIPC.
+- **واجهة عربية RTL:** تنسيق كامل مع Tailwind، وتقارير PDF تدعم العربية.
+- **تقارير متعددة:** PDF، فواتير حرارية، وتصدير Excel من نفس البيانات.
 
 ## 🛠️ التقنيات
 
@@ -40,8 +51,10 @@
 ├── App.tsx              # نقطة دخول الواجهة
 ├── main.cjs             # عملية Electron الرئيسية + SQLite
 ├── preload.cjs          # جسر IPC الآمن
+├── docs/                # Architecture
 ├── supabase_schema.sql  # مخطط قاعدة البيانات
 ├── .env.example         # نموذج متغيرات البيئة
+├── CHANGELOG.md
 └── package.json
 ```
 
@@ -87,6 +100,12 @@ npm run build:dir   # نسخة Electron قابلة للتشغيل (Windows)
 - `VITE_ADMIN_PASSWORD` هو **قفل واجهة محلي فقط** وليس مصادقة حقيقية.
 - فعّل **Row Level Security (RLS)** وسياسات مناسبة في Supabase قبل أي استخدام إنتاجي.
 - راجع [`SECURITY.md`](SECURITY.md) قبل النشر.
+
+## 📚 توثيق إضافي
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Changelog](CHANGELOG.md)
+- [Security](SECURITY.md)
 
 ## 📄 الترخيص
 
@@ -139,6 +158,12 @@ npm run build:dir
 - `VITE_ADMIN_PASSWORD` is a local UI gate, not authentication.
 - Enable RLS and proper policies in Supabase before production use.
 - Never expose a `service_role` key in client-side `VITE_*` variables.
+
+### Documentation
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Changelog](CHANGELOG.md)
+- [Security](SECURITY.md)
 
 ### License
 
