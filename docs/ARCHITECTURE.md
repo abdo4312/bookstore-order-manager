@@ -69,7 +69,7 @@ The UI does not know which mode is active; it calls the same exported functions.
 - Only whitelisted IPC channels are exposed by `preload.cjs`.
 - Supabase credentials come from `VITE_*` environment variables; no keys are committed.
 - `VITE_ADMIN_PASSWORD` is a local UI gate, not authentication.
-- Production deployments must enable Row Level Security (RLS) and proper policies.
+- RLS is enabled by default in `supabase_schema.sql`; production deployments must add proper policies.
 
 ## Report generation
 

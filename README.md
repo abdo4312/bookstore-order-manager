@@ -98,7 +98,7 @@ npm run build:dir   # نسخة Electron قابلة للتشغيل (Windows)
 
 - لا توجد بيانات عملاء أو ملفات قاعدة بيانات داخل المستودع.
 - `VITE_ADMIN_PASSWORD` هو **قفل واجهة محلي فقط** وليس مصادقة حقيقية.
-- فعّل **Row Level Security (RLS)** وسياسات مناسبة في Supabase قبل أي استخدام إنتاجي.
+- **RLS مفعّل افتراضيًا** في `supabase_schema.sql`، لكن لازم تضيف سياسات مناسبة قبل أي استخدام إنتاجي.
 - راجع [`SECURITY.md`](SECURITY.md) قبل النشر.
 
 ## 📚 توثيق إضافي
@@ -156,7 +156,7 @@ npm run build:dir
 
 - No real data or secrets are included.
 - `VITE_ADMIN_PASSWORD` is a local UI gate, not authentication.
-- Enable RLS and proper policies in Supabase before production use.
+- RLS is enabled by default in `supabase_schema.sql`; add proper policies before production use.
 - Never expose a `service_role` key in client-side `VITE_*` variables.
 
 ### Documentation

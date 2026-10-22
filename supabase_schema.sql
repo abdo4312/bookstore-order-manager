@@ -95,17 +95,14 @@ ALTER TABLE book_types ENABLE ROW LEVEL SECURITY;
 ALTER TABLE employees ENABLE ROW LEVEL SECURITY;
 ALTER TABLE settings ENABLE ROW LEVEL SECURITY;
 
--- Create policies to allow public access (for simplicity)
--- في المستقبل ممكن نضيف authentication ونقيد الصلاحيات
-CREATE POLICY "Allow all operations" ON customers FOR ALL USING (true);
-CREATE POLICY "Allow all operations" ON orders FOR ALL USING (true);
-CREATE POLICY "Allow all operations" ON publishers FOR ALL USING (true);
-CREATE POLICY "Allow all operations" ON academic_years FOR ALL USING (true);
-CREATE POLICY "Allow all operations" ON subjects FOR ALL USING (true);
-CREATE POLICY "Allow all operations" ON payment_methods FOR ALL USING (true);
-CREATE POLICY "Allow all operations" ON book_types FOR ALL USING (true);
-CREATE POLICY "Allow all operations" ON employees FOR ALL USING (true);
-CREATE POLICY "Allow all operations" ON settings FOR ALL USING (true);
+-- لا توجد سياسات افتراضية: RLS يمنع كل الوصول حتى تضيف سياسات مناسبة.
+-- أمثلة (عدّلها حسب نموذج الصلاحيات لديك):
+-- CREATE POLICY "customers_select_authenticated" ON customers
+--   FOR SELECT TO authenticated USING (<your_condition>);
+-- CREATE POLICY "orders_manage_authenticated" ON orders
+--   FOR ALL TO authenticated USING (<your_condition>) WITH CHECK (<your_condition>);
+--
+-- ⚠️ لا تفتح الوصول للجميع في الإنتاج بدون فهمك للصلاحيات.
 
 -- Employee order migration for existing databases
 ALTER TABLE employees ADD COLUMN IF NOT EXISTS sort_order INTEGER;
