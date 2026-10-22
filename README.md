@@ -77,6 +77,8 @@ npm run build:dir   # نسخة Electron قابلة للتشغيل (Windows)
 | `VITE_SUPABASE_ANON_KEY` | المفتاح العام (anon) للمشروع |
 | `VITE_ADMIN_PASSWORD` | كلمة مرور قفل لوحة الإدارة المحلي |
 
+> للتبديل إلى وضع SQLite المحلي: غيّر `USE_CLOUD` إلى `false` في `services/config.ts`.
+
 > لا تضع أي `service_role` أو مفاتيح سرية في متغيرات `VITE_*`؛ لأنها تُضمَّن في حزمة العميل وتكون مرئية للمستخدم.
 
 ## 🔐 ملاحظات أمان
